@@ -66,5 +66,21 @@ guard let url = url else {
     throw URLError.unableToBuildURL
 }
 
-print(url)
+print("URL Without Params: ", url)
+
+let urlWithParams = URLBuilder()
+    .set(scheme: "https")
+    .set(host: "meetup-api")
+    .set(path: "/api/v1/users")
+    .addQueryItem(name: "user", value: "steven")
+    .build()
+
+guard let urlWithParams = urlWithParams else {
+    throw URLError.unableToBuildURL
+}
+
+print("URL With Params: ", urlWithParams)
+
+
+    
 
